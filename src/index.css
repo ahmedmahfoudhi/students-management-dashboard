@@ -1,0 +1,30 @@
+@layer theme, base, antd, components, utilities;
+
+@import "tailwindcss";
+
+
+
+@theme{
+  --color-blue-1: #0080DF;
+  --color-blue-2: #2860D7;
+  --color-blue-3: #5590f5;
+  --color-blue-4: #EFF7FE;
+  --color-auth-pages: #EBEBFF;
+  --color-dashboard-pages: #F5FAFF;
+  --color-black-1: #000030BF;
+
+}
+
+@layer utilities{
+  .bg-gradient-custom {
+    background-image: linear-gradient(90.09deg, rgba(255, 255, 255, 0.43) 6.16%, rgba(68, 143, 237, 0.43) 70.73%, rgba(8, 111, 233, 0.6) 99.98%)
+  }
+}
+
+.ant-drawer-header{
+  display: none !important;
+}
+
+.ant-drawer-body{
+  padding: 0 !important;
+}
