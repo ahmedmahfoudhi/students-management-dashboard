@@ -13,6 +13,7 @@ import {
   UpdateStudentInformation,
 } from "../../types";
 import avatar from "../../assets/avatar.svg";
+import useDebounceValue from "../../hooks/useDebounceValue";
 
 const columns: TColumns = [
   {
@@ -113,12 +114,13 @@ const StudentsTable: React.FC = () => {
   });
   const [mappedData, setMappedData] = useState<StudentUIData[]>([]);
   const [searchValue, setSearchValue] = useState<string>("");
+  const debouncedSearchValue = useDebounceValue(searchValue, 500);
 
   const [page, setPage] = useState<number>(0);
   const [pageSize, setPageSize] = useState<number>(10);
   const { isPending, data } = useQuery<GetStudentResponseWithCount>({
-    queryKey: ["students", page, pageSize, filters, searchValue],
-    queryFn: () => getStudents(pageSize, page, filters, searchValue),
+    queryKey: ["students", page, pageSize, filters, debouncedSearchValue],
+    queryFn: () => getStudents(pageSize, page, filters, debouncedSearchValue),
     staleTime: 60 * 1000,
   });
   const [currentColumns, setCurrentColumns] = useState<TColumns>(columns);

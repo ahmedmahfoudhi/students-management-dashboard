@@ -23,7 +23,6 @@ const EditStudentDrawer = ({
   setIsDrawerOpen,
   studentInformation,
 }: EditDrawerProps) => {
-  console.log("studentInformation in edit student drawer ", studentInformation);
   const handleClose = () => {
     setIsDrawerOpen(false);
   };
@@ -61,7 +60,6 @@ const EditStudentDrawer = ({
         },
       }
     );
-    console.log("data", data);
   };
 
   return (
